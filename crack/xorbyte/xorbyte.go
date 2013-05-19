@@ -9,7 +9,7 @@ type byteAndScore struct {
 
 // Finds ciphertext most likely to have been xor'd with a key of all one byte
 // NOTE: Only operates on single bytes, not unicode characters
-func ChooseLikelyXorByte(ciphertexts [][]byte, scorer Scorer) ([]byte, byte) {
+func FindCiphertext(ciphertexts [][]byte, scorer Scorer) ([]byte, byte) {
     var (
 		closestCiphertext []byte = make([]byte, 256)
         closestByte byte = 0
@@ -32,7 +32,7 @@ func ChooseLikelyXorByte(ciphertexts [][]byte, scorer Scorer) ([]byte, byte) {
 
 // Finds byte most likely to have been xor'd with every byte in ciphertext
 // NOTE: Only operates on single bytes, not unicode characters
-func XorByte(ciphertext []byte, scorer Scorer) byte {
+func FindByte(ciphertext []byte, scorer Scorer) byte {
     closestByte, _ := xorByte(ciphertext, scorer)
     return closestByte
 }

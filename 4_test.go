@@ -355,7 +355,7 @@ func Test4(t *testing.T) {
     }
 
     // Attempt to find ciphertext most likely xor'd with a key of the same byte
-    ciphertext, closestByte := xorbyte.ChooseLikelyXorByte(ciphertexts, xorbyte.EnglishScorer)
+    ciphertext, closestByte := xorbyte.FindCiphertext(ciphertexts, xorbyte.EnglishScorer)
 
     // Construct key from most likely byte
     key := make([]byte, len(ciphertext))

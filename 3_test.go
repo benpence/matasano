@@ -19,7 +19,7 @@ func Test3(t *testing.T) {
     }
 
     // Attempt to find byte most likely xor'd with ciphertext
-    closestByte := xorbyte.XorByte(ciphertext, xorbyte.EnglishScorer)
+    closestByte := xorbyte.FindByte(ciphertext, xorbyte.EnglishScorer)
 
     // Construct key from most likely byte
     key := make([]byte, len(ciphertext))
