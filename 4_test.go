@@ -8,7 +8,7 @@ import (
     "matasano/crack/xorbyte"
 )
 
-var inputs []string = []string{
+var input4 []string = []string{
     "0e3647e8592d35514a081243582536ed3de6734059001e3f535ce6271032",
     "334b041de124f73c18011a50e608097ac308ecee501337ec3e100854201d",
     "40e127f51c10031d0133590b1e490f3514e05a54143d08222c2a4071e351",
@@ -338,12 +338,12 @@ var inputs []string = []string{
     "32042f46431d2c44607934ed180c1028136a5f2b26092e3b2c4e2930585a",
 }
 
-const output string = "Now that the party is jumping\n"
+const output4 string = "Now that the party is jumping\n"
 
 func Test4(t *testing.T) {
-    ciphertexts := make([][]byte, len(inputs))
+    ciphertexts := make([][]byte, len(input4))
 
-    for i, input := range inputs {
+    for i, input := range input4 {
         // Decode ciphertext
         ciphertext, err := encoding.DecodeHex([]byte(input))
         if err != nil {
@@ -366,8 +366,8 @@ func Test4(t *testing.T) {
     // Decrypt ciphertext
     plaintext, _ := bits.Xor(ciphertext, key)
 
-    // Output plaintext
-    if string(plaintext) != output {
-        t.Error(string(plaintext), "!=", output)
+    // output plaintext
+    if string(plaintext) != output4 {
+        t.Error(string(plaintext), "!=", output4)
     }
 }

@@ -7,19 +7,19 @@ import (
 	"matasano/encoding"
 )
 
-const input1 string = "1c0111001f010100061a024b53535009181c"
-const input2 string = "686974207468652062756c6c277320657965"
-const output string = "746865206b696420646f6e277420706c6179"
+const input2a string = "1c0111001f010100061a024b53535009181c"
+const input2b string = "686974207468652062756c6c277320657965"
+const output2 string = "746865206b696420646f6e277420706c6179"
 
 func Test2(t *testing.T) {
-    raw1, err := encoding.DecodeHex([]byte(input1))
+    raw1, err := encoding.DecodeHex([]byte(input2a))
     if err != nil {
-        t.Error("Decoding", input1, "failed")
+        t.Error("Decoding", input2a, "failed")
     }
 
-    raw2, err := encoding.DecodeHex([]byte(input2))
+    raw2, err := encoding.DecodeHex([]byte(input2b))
     if err != nil {
-        t.Error("Decoding", input2, "failed")
+        t.Error("Decoding", input2b, "failed")
     }
 
     result, err := bits.Xor(raw1, raw2)
@@ -28,7 +28,7 @@ func Test2(t *testing.T) {
     }
 
     resultEncoded := encoding.EncodeHex(result)
-    if string(resultEncoded) != output {
-        t.Error(string(resultEncoded), "!=", output)
+    if string(resultEncoded) != output2 {
+        t.Error(string(resultEncoded), "!=", output2)
 	}
 }
