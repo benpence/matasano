@@ -1,18 +1,18 @@
 package bits
 
-func RepeatingXor(plaintext []byte, key []byte) []byte {
-    if len(plaintext) == 0 || len(key) == 0 {
-        plaintext_ := make([]byte, len(plaintext))
-        for i, b := range plaintext {
-            plaintext_[i] = b
+func RepeatingXor(text []byte, key []byte) []byte {
+    if len(text) == 0 || len(key) == 0 {
+        text_ := make([]byte, len(text))
+        for i, b := range text {
+            text_[i] = b
         }
-        return plaintext_
+        return text_
     }
 
-    ciphertext := make([]byte, len(plaintext))
+    ciphertext := make([]byte, len(text))
 
     // TODO: Use existing Xor function instead?
-    for i, b := range plaintext {
+    for i, b := range text {
         ciphertext[i] = b ^ key[i % len(key)]
     }
 
