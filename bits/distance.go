@@ -4,6 +4,7 @@ import (
     "errors"
 )
 
+// Number of bits in first that are not the same in second
 func Distance(first, second []byte) (int, error) {
     if len(first) != len(second) {
         return 0, errors.New("Byte slices must be same length")
