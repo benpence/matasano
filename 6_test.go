@@ -82,7 +82,10 @@ func Test6(t *testing.T) {
         t.Error("Decoding", input6, "failed")
     }
 
-    plaintext := bits.RepeatingXor(ciphertext, repeatingxor.FindKey(ciphertext))
+    plaintext, err := bits.RepeatingXor(ciphertext, repeatingxor.FindKey(ciphertext))
+    if err != nil {
+        t.Error("bits.RepeatingXor returned error:", err)
+    }
 
     if string(plaintext) != output6 {
         t.Error(string(plaintext), "!=", output6)
