@@ -1,4 +1,4 @@
-package matasano
+package problems
 
 import (
     "testing"
