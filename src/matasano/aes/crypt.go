@@ -1,11 +1,11 @@
-package bits
+package aes
 
 import (
     "crypto/cipher"
     "crypto/aes"
 )
 
-func EncryptAes(text, key []byte) ([]byte, error) {
+func Encrypt(text, key []byte) ([]byte, error) {
     // Create cipher and pad text
     cipher, padded, err := cipherAndPaddedText(text, key)
     if err != nil {
@@ -22,7 +22,7 @@ func EncryptAes(text, key []byte) ([]byte, error) {
     return padded[:len(text)], nil
 }
 
-func DecryptAes(text, key []byte) ([]byte, error) {
+func Decrypt(text, key []byte) ([]byte, error) {
     // Create cipher and pad text
     cipher, padded, err := cipherAndPaddedText(text, key)
     if err != nil {

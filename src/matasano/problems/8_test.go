@@ -4,7 +4,7 @@ import (
     "testing"
 
     "matasano/encoding"
-    "matasano/crack"
+    "matasano/aes"
 )
 
 var input8 []string = []string{
@@ -239,9 +239,9 @@ func Test8(t *testing.T) {
         }
     }
 
-    ciphertext, err := crack.FindAesEcb(ciphertexts, 16)
+    ciphertext, err := aes.FindEcb(ciphertexts, 16)
     if err != nil {
-        t.Error("crack.AesEcb returned an error:", err)
+        t.Error("aes.FindEcb returned an error:", err)
     }
 
     if string(ciphertext) != string(output8) {

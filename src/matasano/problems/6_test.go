@@ -3,9 +3,8 @@ package problems
 import (
 	"testing"
 
-	"matasano/bits"
 	"matasano/encoding"
-    "matasano/crack/repeatingxor"
+    "matasano/repeatingxor"
 )
 
 const input6 string =
@@ -82,9 +81,9 @@ func Test6(t *testing.T) {
         t.Error("Decoding", input6, "failed")
     }
 
-    plaintext, err := bits.RepeatingXor(ciphertext, repeatingxor.FindKey(ciphertext))
+    plaintext, err := repeatingxor.Crypt(ciphertext, repeatingxor.FindKey(ciphertext))
     if err != nil {
-        t.Error("bits.RepeatingXor returned error:", err)
+        t.Error("repeatingxor.Crypt returned error:", err)
     }
 
     if string(plaintext) != output6 {

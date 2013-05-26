@@ -1,4 +1,4 @@
-package bits
+package repeatingxor
 
 import (
     "testing"
@@ -38,14 +38,14 @@ var repeating_xor_errors []repeating_xor_input = []repeating_xor_input{
 func TestRepeatingXor(t *testing.T) {
     for _, i := range repeating_xor_inputs {
         if ciphertext, err := RepeatingXor(i.plaintext, i.key); err != nil {
-            t.Error("bits.RepeatingXor(", i.plaintext, i.key, ") returned error:", err)
+            t.Error("RepeatingXor(", i.plaintext, i.key, ") returned error:", err)
 
         } else if string(ciphertext) != string(i.ciphertext) {
             t.Error(ciphertext, "!=", i.ciphertext)
         }
 
         if plaintext, err := RepeatingXor(i.ciphertext, i.key); err != nil {
-            t.Error("bits.RepeatingXor(", i.ciphertext, i.key, ") returned error:", err)
+            t.Error("RepeatingXor(", i.ciphertext, i.key, ") returned error:", err)
 
         } else if string(plaintext) != string(i.plaintext) {
             t.Error(plaintext, "!=", i.plaintext)
@@ -54,7 +54,7 @@ func TestRepeatingXor(t *testing.T) {
 
     for _, i := range repeating_xor_errors {
         if _, err := RepeatingXor(i.plaintext, i.key); err == nil {
-            t.Error("bits.RepeatingXor(", i.plaintext, i.key, ") did not return error")
+            t.Error("RepeatingXor(", i.plaintext, i.key, ") did not return error")
         }
     }
 }

@@ -5,7 +5,7 @@ import (
 
     "matasano/encoding"
     "matasano/bits"
-    "matasano/crack/xorbyte"
+    "matasano/xorbyte"
 )
 
 var input4 []string = []string{

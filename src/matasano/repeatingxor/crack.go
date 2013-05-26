@@ -2,7 +2,7 @@ package repeatingxor
 
 import (
     "matasano/bits"
-    "matasano/crack/xorbyte"
+    "matasano/xorbyte"
 )
 
 func FindKey(ciphertext []byte) []byte {

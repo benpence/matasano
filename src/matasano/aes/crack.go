@@ -1,12 +1,10 @@
-package crack
+package aes
 
-import (
-    "errors"
-)
+import "errors"
 
 // Find most likely AES 128 ECB encrypted ciphertext by summing the number of
 //   repititions of 16 byte blocks and returning the ciphertext with the most
-func FindAesEcb(ciphertexts [][]byte, blocksize int) ([]byte, error) {
+func FindEcb(ciphertexts [][]byte, blocksize int) ([]byte, error) {
     if len(ciphertexts) == 0 {
         return nil, errors.New("ciphertexts must not be empty")
     } else if blocksize <= 0 {

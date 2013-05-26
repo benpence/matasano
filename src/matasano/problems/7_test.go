@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"matasano/encoding"
-	"matasano/bits"
+	"matasano/aes"
 )
 
 const input7 string =
@@ -162,7 +162,7 @@ func Test7(t *testing.T) {
         t.Error("Decoding", input7, "failed")
     }
 
-    plaintext, err := bits.DecryptAes(ciphertext, []byte(key7))
+    plaintext, err := aes.Decrypt(ciphertext, []byte(key7))
     if err != nil {
         t.Error("Decrypting returned error:", err)
     }
