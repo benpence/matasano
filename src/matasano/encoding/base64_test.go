@@ -2,8 +2,6 @@ package encoding
 
 import (
 	"testing"
-
-	"matasano/encoding"
 )
 
 var correctEncodings map[string][]byte = map[string][]byte{
@@ -28,7 +26,7 @@ var invalidEncodings []string = []string{
 
 func TestEncodeBase64(t *testing.T) {
 	for str, bytes := range correctEncodings {
-		result := encoding.EncodeBase64(bytes)
+		result := EncodeBase64(bytes)
 		if string(result) != str {
 			t.Error(string(result), "!=", str)
 		}
@@ -42,7 +40,7 @@ func TestDecodeBase64(t *testing.T) {
 	)
 
 	for str, bytes := range correctEncodings {
-		result, err = encoding.DecodeBase64([]byte(str))
+		result, err = DecodeBase64([]byte(str))
 
 		if err != nil {
 			t.Error("Error non-nil:", err)
@@ -63,7 +61,7 @@ func TestDecodeBase64(t *testing.T) {
 	}
 
 	for _, invalidEncoding := range invalidEncodings {
-		if _, err = encoding.DecodeBase64([]byte(invalidEncoding)); err == nil {
+		if _, err = DecodeBase64([]byte(invalidEncoding)); err == nil {
 			t.Error(invalidEncoding, "did not return error")
 		}
 	}

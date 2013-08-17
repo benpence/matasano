@@ -76,17 +76,16 @@ const input6 string =
 const output6 string = ""
 
 func Test6(t *testing.T) {
-    ciphertext, err := encoding.DecodeBase64([]byte(input6))
-    if err != nil {
+    if ciphertext, err := encoding.DecodeBase64([]byte(input6)); err != nil {
         t.Error("Decoding", input6, "failed")
-    }
 
-    plaintext, err := repeatingxor.Crypt(ciphertext, repeatingxor.FindKey(ciphertext))
-    if err != nil {
+    } else if key, err := repeatingxor.FindKey(ciphertext); err != nil {
+        t.Error("repeatingxor.Key returned error:", err)
+
+    } else if plaintext, err := repeatingxor.Crypt(ciphertext, key); err != nil {
         t.Error("repeatingxor.Crypt returned error:", err)
-    }
 
-    if string(plaintext) != output6 {
+    } else if string(plaintext) != output6 {
         t.Error(string(plaintext), "!=", output6)
 	}
 }

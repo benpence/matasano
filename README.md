@@ -2,10 +2,12 @@
 
 The source in `src/matasano` is organized as follows:
 
-- `bits/` for encryption, decryption, and general bit-operation
-- `encoding/` for base64 and hex encoding and decoding
-- `crack/` for encryption detection and 'forced' ciphertext decryption
-- `problems/` for test code
+- `bits/` general bit-operation
+- `encoding/` base64 and hex encoding and decoding
+- `xorbyte/` encrypting and forcibly decrypting message blocks XOR'd by the same byte
+- `repeatingxor/` encrypting and forcibly decrypting message blocks XOR'd by a bytestring
+- `aes/` encrypting with AES and detecting AES
+- `problems/` matasano-specific problem numbers
 
 # Testing
 
