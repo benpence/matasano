@@ -1,3 +1,5 @@
+Go implementation of the Matasano Crypto Challenges (http://cryptopals.com)
+
 # Source
 
 The source in `src/matasano` is organized as follows:
